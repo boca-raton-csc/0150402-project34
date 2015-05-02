@@ -1,0 +1,18 @@
+<template name="navigation">
+  Navigation
+  
+  <ul>
+    {{#each topics}}
+      {{> zorb}}
+    {{/each}}
+    {{#each discussions}}
+      {{> zorb}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="zorb">
+  <li>
+    {{title}}
+  </li>
+</template>

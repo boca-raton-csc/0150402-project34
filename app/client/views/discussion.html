@@ -1,0 +1,12 @@
+<template name="discussion">
+  <form class="post">
+    <input type="text" name="title" placeholder = "Type stuff here...">
+    <input type="submit" value="Enter">
+  </form>
+  
+  <ul>
+    {{#each discussion}}
+      {{> discussion}}
+    {{/each}}
+  </ul>
+</template>
