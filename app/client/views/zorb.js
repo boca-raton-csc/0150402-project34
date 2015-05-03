@@ -5,15 +5,16 @@ Template.zorb.helpers({
 });
 
 Template.zorb.events({
-  'click .zorb-discuss': function () {
-    Session.set('discussionId', this._id);
-  },
-
-  'click .zorb-edit': function () {
+  'click .zorb-edit': function (event) {
+    event.stopPropagation();
     Session.set('editing', this);
   },
 
-  'click .zorb-navigate': function () {
-    Session.set('navigationId', this._id);
+  'click .zorb': function () {
+    if (this.isTopic) {
+      Session.set('navigationId', this._id);
+    } else {
+      Session.set('discussionId', this._id);
+    }
   }
 });

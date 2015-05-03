@@ -1,9 +1,9 @@
 <template name="zorb">
   <li class="zorb">
-    <span class="zorb-discuss">{{title}}</span>
-    <span class="zorb-edit">edit</span>
+    <div class="zorb-title">{{title}}</div>
+    <div class="zorb-edit">edit</div>
     {{#if isTopic}}
-      <span class="zorb-navigate">-&gt;</span>
+      <div class="zorb-navigate fa fa-angle-right"></div>
     {{/if}}
   </li>
 </template>

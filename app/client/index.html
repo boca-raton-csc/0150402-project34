@@ -3,13 +3,16 @@
 </head>
 
 <body>
-  {{> loginButtons}}
-
-  {{> navigation}}
-
-  {{#if editing}}
-    {{> editor edit=editing}}
-  {{else}}
-    {{> discussion}}
-  {{/if}}
+  <header class="header">
+    <h1 class="header-title">TODO</h1>
+    <div class="header-user">{{> loginButtons}}</div>
+  </header>
+  <main class="viewport">
+    {{> navigation class="viewport-navigation"}}
+    {{#if editing}}
+      {{> editor edit=editing class="viewport-workspace"}}
+    {{else}}
+      {{> discussion class="viewport-workspace"}}
+    {{/if}}
+  </main>
 </body>

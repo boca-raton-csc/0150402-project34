@@ -17,16 +17,20 @@ Schemas.Stimulus = new SimpleSchema({
 });
 
 Schemas.Message = new SimpleSchema({
-  title: {
-    type: String
-  },
-
   text: {
     type: String
   },
 
   user: {
-    type: String
+    type:     String,
+    optional: true
+  },
+
+  createdAt: {
+    type:      Date,
+    autoValue: function () {
+      return new Date();
+    }
   }
 });
 
@@ -47,7 +51,8 @@ Schemas.Zorb = new SimpleSchema({
   },
 
   messages: {
-    type: [Schemas.Message]
+    type:         [Schemas.Message],
+    defaultValue: []
   },
 
   isSticky: {
@@ -62,7 +67,7 @@ Schemas.Zorb = new SimpleSchema({
     defaultValue: false
   },
 
-  createdAt: {
+  modified: {
     type:      Date,
     autoValue: function () {
       return new Date();

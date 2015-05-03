@@ -1,10 +1,17 @@
-var messages = new ReactiveVar([]);
 Session.setDefault("kayla", true);
 
 Template.discussion.helpers({
   messages: function() {
     scrollDiv();
-    return messages.get();
+    var discussion = Zorbs.findOne(Session.get('discussionId'));
+    if (discussion) {
+      return discussion.messages;
+    }
+    return [];
+  },
+
+  discussion: function () {
+    return Zorbs.findOne(Session.get('discussionId'));
   },
 
   kayla: function() {
@@ -22,32 +29,28 @@ Template.discussion.events({
         return;
       }
 
-      var cache = messages.get();
-
-      cache.push({
-        title: text,
-        createdAt: new Date()
+      Zorbs.update(Session.get('discussionId'), {
+        $push: { messages: { text: text } }
       });
-
-      messages.set(cache);
 
       event.target.title.value = '';
     },
 
     'click .discussion-toggle': function() {
       Session.set('kayla', !Session.get('kayla'));
+    },
+
+    'keydown .input-text': function (event) {
+      if(event.keyCode == 13 && event.shiftKey) {
+        event.preventDefault();
+        $('.input').submit();
+      }
     }
 });
 
 
 Meteor.startup(function () {
   scrollDiv();
-  $(".input-text").on('keydown', function(e) {
-    console.log(e)
-    if(e.keyCode == 13 && e.shiftKey) {
-      $('.input').submit();
-    }
-  });
 });
 
 var scrollDiv = function(){

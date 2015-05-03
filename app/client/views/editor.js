@@ -1,33 +1,12 @@
-var addingStimulus = new ReactiveVar(false);
-
 Template.editor.events({
-  'click .stimulus-add': function () {
-    addingStimulus.set(!addingStimulus.get());
-  },
-
-  'click .editor-cancel': function () {
+  'click .editor-cancel': function (event) {
     Session.set('editing', undefined);
+    event.target.form.reset();
   }
-});
-
-Template.editor.helpers({
-  addingStimulus: function () {
-    return addingStimulus.get();
-  }
-});
-
-Tracker.autorun(function () {
-  Session.get('navigationId');
-  Session.set('editing', undefined);
-});
-
-Tracker.autorun(function () {
-  Session.get('editing');
-  addingStimulus.set(false);
 });
 
 AutoForm.hooks({
-  editor: {
+  editorForm: {
     onSubmit: function (insertDoc, updateDoc, currentDoc) {
       this.event.preventDefault();
 
@@ -36,14 +15,12 @@ AutoForm.hooks({
         return;
       }
 
-      if (currentDoc) {
+      if (currentDoc._id) {
         Zorbs.update(currentDoc._id, updateDoc);
       } else {
         insertDoc.parent = Session.get('navigationId');
         Zorbs.insert(insertDoc);
       }
-
-      console.log(insertDoc);
 
       Session.set('editing', undefined);
       this.done();

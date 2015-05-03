@@ -1,0 +1,32 @@
+.zorb
+  cursor: pointer
+
+  position: relative
+
+  display: flex
+  padding: (1.0rem / $golden) (0.5rem / $golden)
+  margin: 0 (0.5rem / $golden)
+
+  border-bottom: solid 1px hsl(198, 5%, 72%)
+
+  &:first-of-type
+    border-top: solid 1px hsl(198, 5%, 72%)
+
+  &:hover
+    background-color: hsl(198, 5%, 85%)
+
+    .zorb-title
+      color: hsl(198, 5%, 32%)
+
+    .zorb-navigate
+      color: tomato
+      transform: translateX(0.25rem / $golden)
+
+.zorb-title
+  text-shadow: 0 1px 0 hsl(198, 5%, 94%)
+
+.zorb-navigate
+  position: absolute
+  right: (1.25rem / $golden)
+
+  text-shadow: 0 1px 0 hsl(198, 5%, 94%)

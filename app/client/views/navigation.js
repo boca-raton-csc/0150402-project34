@@ -8,7 +8,7 @@ Template.navigation.helpers({
     return getChildren(Session.get('navigationId'), {
       sort: {
         isSticky: -1,
-        createdAt: 1
+        modified: -1
       }
     });
   }
