@@ -1,0 +1,18 @@
+<template name="editor">
+  {{#autoForm class="editor" id="editor" type="normal" collection="Zorbs" doc=edit}}
+    {{> afQuickField name="isSticky"}}
+    {{> afQuickField name="isTopic"}}
+    {{> afQuickField name="title" autofocus=""}}
+    <div class="stimulus">
+      <span class="stimulus-add">Show Stimulus</span>
+      <div class="stimulus-form">
+        {{#if addingStimulus}}
+          {{> afQuickField name="stimulus.link"}}
+          {{> afQuickField name="stimulus.comment"}}
+        {{/if}}
+      </div>
+    </div>
+    <button class="editor-save" type="submit">Save</button>
+    <button class="editor-cancel">Cancel</button>
+  {{/autoForm}}
+</template>

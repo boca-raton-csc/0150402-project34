@@ -1,18 +1,20 @@
 <template name="navigation">
-  Navigation
-  
-  <ul>
-    {{#each topics}}
-      {{> zorb}}
-    {{/each}}
-    {{#each discussions}}
-      {{> zorb}}
-    {{/each}}
-  </ul>
-</template>
-
-<template name="zorb">
-  <li>
-    {{title}}
-  </li>
+  <div class="navigation">
+    <h2 class="navigation-title">Navigation</h2>
+    <ul class="navigation-actions">
+      <div class="navigation-actions-left">
+        {{#if hasParent}}
+          <li class="navigation-action-parent">Back</li>
+        {{/if}}
+      </div>
+      <div class="navigation-actions-right">
+        <li class="navigation-action-create">Create</li>
+      </div>
+    </ul>
+    <ul class="navigation-system zorbs">
+      {{#each navigationZorbs}}
+        {{> zorb}}
+      {{/each}}
+    </ul>
+  </div>
 </template>

@@ -9,6 +9,7 @@ aldeed:simple-schema
 aldeed:collection2
 accounts-password
 accounts-ui
-accounts-google
 autopublish
 insecure
+reactive-var
+aldeed:autoform

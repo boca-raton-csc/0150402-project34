@@ -1,13 +1,11 @@
 <head>
-  
+  <title>Da Vinci Coder</title>
 </head>
 
 <body>
-  {{#if isNarwhals}}
-    {{> loginButtons}}
-    
-    {{> discussion}}
-  {{else}}
-    {{> navigation}}
+  {{> navigation}}
+
+  {{#if editing}}
+    {{> editor edit=editing}}
   {{/if}}
 </body>

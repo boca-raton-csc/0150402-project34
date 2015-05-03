@@ -1,9 +1,25 @@
 Template.navigation.helpers({
-  topics: function () {
-    return Topics.find();
+  hasParent: function () {
+    var parent = getNavigationParent();
+    return parent ? true : parent === undefined;
   },
-  
-  discussions: function () {
-    return Discussions.find();
+
+  navigationZorbs: function () {
+    return getChildren(Session.get('navigationId'), {
+      sort: {
+        isSticky: -1,
+        createdAt: 1
+      }
+    });
+  }
+});
+
+Template.navigation.events({
+  'click .navigation-action-parent': function () {
+    Session.set('navigationId', getNavigationParent());
+  },
+
+  'click .navigation-action-create': function () {
+    Session.set('editing', true);
   }
 });
