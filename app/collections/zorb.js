@@ -16,6 +16,20 @@ Schemas.Stimulus = new SimpleSchema({
   }
 });
 
+Schemas.Message = new SimpleSchema({
+  title: {
+    type: String
+  },
+
+  text: {
+    type: String
+  },
+
+  user: {
+    type: String
+  }
+});
+
 Schemas.Zorb = new SimpleSchema({
   title: {
     label: 'Title',
@@ -30,6 +44,10 @@ Schemas.Zorb = new SimpleSchema({
   stimulus: {
     type:     Schemas.Stimulus,
     optional: true
+  },
+
+  messages: {
+    type: [Schemas.Message]
   },
 
   isSticky: {
