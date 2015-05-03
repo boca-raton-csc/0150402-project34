@@ -3,9 +3,13 @@
 </head>
 
 <body>
+  {{> loginButtons}}
+
   {{> navigation}}
 
   {{#if editing}}
     {{> editor edit=editing}}
+  {{else}}
+    {{> discussion}}
   {{/if}}
 </body>

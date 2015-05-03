@@ -1,9 +1,5 @@
 Meteor.methods({
   resetData: function () {
-    /* ==============================
-     * Topics
-     * =========================== */
-
     // Remove all topics
     Zorbs.remove({});
 

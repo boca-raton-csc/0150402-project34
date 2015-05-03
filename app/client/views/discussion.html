@@ -1,12 +1,24 @@
 <template name="discussion">
-  <form class="post">
-    <input type="text" name="title" placeholder = "Type stuff here...">
-    <input type="submit" value="Enter">
-  </form>
-  
-  <ul>
-    {{#each discussion}}
-      {{> discussion}}
-    {{/each}}
-  </ul>
+  <div class="discussion">
+    <div class="discussion-toggle">
+      {{#if kayla}}
+        Overview
+      {{else}}
+        Back to Chat
+      {{/if}}
+    </div>
+    {{#if kayla}}
+      <ul id="messages" class="messages">
+        {{#each messages}}
+          {{> message}}
+        {{/each}}
+      </ul>
+      <form class="input" autocomplete="off">
+        <textarea class="input-text" name="title" placeholder="Type stuff here..."></textarea>
+        <input type="submit" class="input-send" value="Send">
+      </form>
+    {{else}}
+      stuff
+    {{/if}}
+  </div>
 </template>
