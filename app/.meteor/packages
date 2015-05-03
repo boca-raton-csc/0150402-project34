@@ -12,3 +12,7 @@ accounts-ui
 accounts-google
 autopublish
 insecure
+reactive-var
+fourseven:scss
+markdown
+templates:tabs

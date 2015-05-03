@@ -1,12 +1,12 @@
 Schemas.User = new SimpleSchema({
   username: {
-      type: String
+    type: String
   },
-  
+
   services: {
-      type: Object,
-      optional: true,
-      blackbox: true
+    type: Object,
+    optional: true,
+    blackbox: true
   }
 });
 

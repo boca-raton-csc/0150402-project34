@@ -3,12 +3,22 @@ Meteor.methods({
     /* ==============================
      * Topics
      * =========================== */
-    
-    // Remove all topics
+
     Topics.remove({});
-    
+
     Topics.insert({
-      title: "Leonardo Da Vinci"
+      title: 'Leonardo Da Vinci'
+    });
+
+    /* ==============================
+     * Topics
+     * =========================== */
+
+    Discussions.remove({});
+
+    Discussions.insert({
+      title:    'Lemon',
+      messages: []
     });
   }
 });
