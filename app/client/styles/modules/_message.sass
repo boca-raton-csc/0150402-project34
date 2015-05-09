@@ -1,3 +1,35 @@
-// .message
-//   color: tomato
-//   text-wrap: wrap
+.message
+  display: flex
+  margin: 0.5rem (1.0rem / ($golden))
+
+.message-avatar
+  background-color: tomato
+  width: 2.5rem
+  height: 2.5rem
+  margin:
+    top: 0.125rem
+    right: 1.0rem / ($golden)
+  
+  border-radius: 50%
+
+.message-content
+  flex: 2
+
+.message-author
+  font-style: italic
+
+.message-timestamp
+  color: hsl(198, 5%, 40%)
+
+.message-text
+  p
+    &:first-of-type
+      margin-top: 0
+    &:last-of-type
+      margin-bottom: 0
+
+.message-likes
+  color: hsl(44, 100%, 47%)
+  
+  &.is-unliked
+    color: hsl(198, 5%, 50%)

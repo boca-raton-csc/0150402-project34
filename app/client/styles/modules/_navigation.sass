@@ -1,6 +1,27 @@
 .navigation
+  display: flex
+  flex-direction: column
+  
   background: hsl(188, 5%, 83%)
   background: linear-gradient(hsl(188, 5%, 83%) 0%, hsl(188, 5%, 80%) 100%)
   box-shadow: inset -3px 0 8px hsla(188, 5%, 25%, 0.1)
 
   color: hsl(198, 5%, 40%)
+
+.navigation-actions
+  display: flex
+  padding: 0.25rem 0
+
+  background-color: hsl(188, 1%, 56%)
+  
+  color: white
+  
+  li
+    cursor: pointer
+    
+    margin-left: 1.0rem / ($golden)
+
+.navigation-system
+  overflow-y: auto
+  
+  flex-grow: 1

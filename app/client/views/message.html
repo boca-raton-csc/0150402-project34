@@ -1,5 +1,21 @@
 <template name="message">
   <li class="message">
-    {{#markdown}}{{{text}}}{{/markdown}}
+    <div class="message-avatar">
+    </div>
+    
+    <div class="message-content">
+      <header class="message-meta">
+        <span class="message-author">{{user.username}}</span>
+        <span class="message-timestamp">{{timestamp}}</span>
+        <span class="message-likes {{#if isUnliked}}is-unliked{{/if}}">
+          <span class="fa fa-star"></span>
+          {{likesCount}}
+        </span>
+      </header>
+      
+      <main class="message-text">
+        {{#markdown}}{{{text}}}{{/markdown}}
+      </main>
+    </div>
   </li>
 </template>

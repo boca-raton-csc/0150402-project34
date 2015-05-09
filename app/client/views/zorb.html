@@ -1,7 +1,12 @@
 <template name="zorb">
-  <li class="zorb">
-    <div class="zorb-title">{{title}}</div>
-    <div class="zorb-edit">edit</div>
+  <li class="zorb {{#if isTopic}}is-topic{{/if}} {{#if isSticky}}is-sticky{{/if}}">
+    <!--<div class="zorb-edit"><span class="fa fa-pencil"></span> Edit</div>-->
+    <div class="zorb-title">
+      {{#if isTopic}}
+        <span class="zorb-title-icon fa fa-folder-o"></span>
+      {{/if}}
+      {{title}}
+    </div>
     {{#if isTopic}}
       <div class="zorb-navigate fa fa-angle-right"></div>
     {{/if}}

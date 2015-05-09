@@ -1,13 +1,13 @@
 .viewport
   display: flex
-  flex-grow: 1
+  height: 100% - (100% / ($golden * $golden * $golden * $golden * $golden * $golden))
 
 .viewport-navigation
-  overflow-y: scroll
-
+  z-index: 5
+  position: relative
   width: 100% - (100% / $golden)
 
 .viewport-workspace
-  overflow-y: scroll
-
+  z-index: 1
+  position: relative
   width: 100% / $golden

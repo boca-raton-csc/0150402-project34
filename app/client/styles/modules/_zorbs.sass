@@ -1,16 +1,17 @@
 .zorb
   cursor: pointer
 
-  position: relative
-
   display: flex
   padding: (1.0rem / $golden) (0.5rem / $golden)
   margin: 0 (0.5rem / $golden)
 
   border-bottom: solid 1px hsl(198, 5%, 72%)
 
-  &:first-of-type
-    border-top: solid 1px hsl(198, 5%, 72%)
+  // &.is-topic
+
+  &.is-sticky
+    .zorb-title
+      font-style: italic
 
   &:hover
     background-color: hsl(198, 5%, 85%)
@@ -18,15 +19,26 @@
     .zorb-title
       color: hsl(198, 5%, 32%)
 
+    .zorb-title-icon
+      color: tomato
+
     .zorb-navigate
       color: tomato
       transform: translateX(0.25rem / $golden)
 
 .zorb-title
+  flex-grow: 1
+  
   text-shadow: 0 1px 0 hsl(198, 5%, 94%)
 
+.zorb-edit
+  margin-right: 1.0rem / ($golden * $golden)
+  font-size: 0.6rem
+
 .zorb-navigate
-  position: absolute
-  right: (1.25rem / $golden)
+  position: relative
+  top: 0.1rem
+
+  margin-right: 1.0rem / ($golden * $golden * $golden)
 
   text-shadow: 0 1px 0 hsl(198, 5%, 94%)

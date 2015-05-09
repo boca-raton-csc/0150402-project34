@@ -3,11 +3,17 @@
     {{#autoForm id="editorForm" type="normal" collection="Zorbs" doc=edit}}
       <h2>Add a Topic</h2>
       {{> afQuickField name="title" autofocus=""}}
-      {{> afQuickField name="isSticky"}}
-      {{> afQuickField name="isTopic"}}
-      <h3>Stimulus</h3>
-      {{> afQuickField name="stimulus.link"}}
-      {{> afQuickField name="stimulus.comment"}}
+      <div class="editor-flags">
+        {{> afQuickField name="isSticky"}}
+        {{> afQuickField name="isTopic" class="topic-toggle"}}
+      </div>
+      {{#if showStimulus}}
+        <div class="editor-stimulus">
+          <h3>Stimulus</h3>
+          {{> afQuickField name="stimulus.link"}}
+          {{> afQuickField name="stimulus.comment"}}
+        </div>
+      {{/if}}
       <button class="editor-save" type="submit">Save</button>
       <button class="editor-cancel" type="reset">Cancel</button>
     {{/autoForm}}

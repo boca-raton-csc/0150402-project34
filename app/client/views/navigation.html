@@ -1,15 +1,19 @@
 <template name="navigation">
   <div class="navigation {{class}}">
-    <ul class="navigation-actions">
-      <div class="navigation-actions-left">
+    {{#if currentUser}}  
+      <ul class="navigation-actions">
+        <li class="navigation-action-create"><span class="fa fa-plus-circle"></span> Create</li>
         {{#if hasParent}}
-          <li class="navigation-action-parent">Back</li>
+          <li class="navigation-action-parent"><span class="fa fa-reply"></span> Back</li>
         {{/if}}
-      </div>
-      <div class="navigation-actions-right">
-        <li class="navigation-action-create">Create</li>
-      </div>
-    </ul>
+      </ul>
+    {{else}}
+      {{#if hasParent}}
+          <ul class="navigation-actions">  
+            <li class="navigation-action-parent"><span class="fa fa-reply"></span> Back</li>
+          </ul>  
+      {{/if}}
+    {{/if}}
     <ul class="navigation-system zorbs">
       {{#each navigationZorbs}}
         {{> zorb}}

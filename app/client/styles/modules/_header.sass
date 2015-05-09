@@ -1,16 +1,27 @@
 .header
   display: flex
   justify-content: space-between
-  padding: 1.0rem / $golden
+  align-items: center
+  height: 100% / ($golden * $golden * $golden * $golden * $golden * $golden)
+  padding: 0 (1.0rem / ($golden))
 
-  background-color: tomato
+  background:
+    color: tomato
+    image: linear-gradient(lighten(tomato, 3%) 0%, darken(tomato, 3%) 100%)
 
   color: white
   font-weight: bold
 
 .header-title
+  cursor: pointer
+  
   margin: 0
 
   font-size: 1.0rem
 
-.header-user
+img
+  height: 35px
+  position: absolute
+  left: 170px
+  top: 1px
+  color: white

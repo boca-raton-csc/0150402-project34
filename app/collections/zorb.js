@@ -22,15 +22,18 @@ Schemas.Message = new SimpleSchema({
   },
 
   user: {
-    type:     String,
-    optional: true
+    type: String
   },
 
   createdAt: {
-    type:      Date,
+    type: Date,
     autoValue: function () {
       return new Date();
     }
+  },
+  
+  likes: {
+    type: [String]
   }
 });
 
@@ -41,6 +44,11 @@ Schemas.Zorb = new SimpleSchema({
   },
 
   parent: {
+    type:     String,
+    optional: true
+  },
+
+  author: {
     type:     String,
     optional: true
   },
@@ -56,13 +64,13 @@ Schemas.Zorb = new SimpleSchema({
   },
 
   isSticky: {
-    label:        'Sticky discussion',
+    label:        'Pin to top!',
     type:         Boolean,
     defaultValue: false
   },
 
   isTopic: {
-    label:        'Can have children',
+    label:        'Make it a folder!',
     type:         Boolean,
     defaultValue: false
   },
@@ -72,6 +80,11 @@ Schemas.Zorb = new SimpleSchema({
     autoValue: function () {
       return new Date();
     }
+  },
+  
+  createdBy: {
+    type:     String,
+    optional: true
   }
 });
 

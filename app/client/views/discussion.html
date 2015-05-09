@@ -1,29 +1,67 @@
 <template name="discussion">
   <div class="discussion {{class}}">
-    <div class="discussion-toggle">
-      {{#if kayla}}
-        Overview
-      {{else}}
-        Back to Chat
-      {{/if}}
-    </div>
     {{#if discussion}}
-      <h2 class="discussion-title">{{discussion.title}}</h2>
+     
+      <div class="discussion-nav">
+        <h2 class="discussion-title">{{discussion.title}}</h2>
+        <div class="discussion-toggle">
+          {{#if kayla}}
+            Overview
+            <span class="fa fa-tasks"></span>
+          {{else}}
+            Back to Chat
+            <span class="fa fa-comments"></span>
+          {{/if}}
+        </div>
+        
+      </div>
       {{#if kayla}}
         <ul id="messages" class="messages">
+          <div class="stimulus">
+            <cite class="stimulus-author">
+              <em>Created by <strong>{{author.username}}</strong></em>
+            </cite>
+            <div class="stimulus-comment">
+              {{#markdown}}{{{discussion.stimulus.comment}}}{{/markdown}}
+            </div>
+            {{#if discussion.stimulus.link}}
+              <div class="stimulus-link">
+                {{discussion.stimulus.link}}
+              </div>
+            {{/if}}
+          </div>
           {{#each messages}}
             {{> message}}
           {{/each}}
         </ul>
-        <form class="input" autocomplete="off">
+        <form class="input {{#if currentUser}}is-not-disabled{{/if}}" autocomplete="off">
           <textarea class="input-text" name="title" placeholder="Type stuff here..."></textarea>
           <input type="submit" class="input-send" value="Send">
         </form>
       {{else}}
-        stuff
+        <ul id="messages" class="messages">
+          <div class="stimulus">
+            <cite class="stimulus-author">
+              <em>Created by <strong>{{author.username}}</strong></em>
+            </cite>
+            <div class="stimulus-comment">
+              {{#markdown}}{{{discussion.stimulus.comment}}}{{/markdown}}
+            </div>
+            {{#if discussion.stimulus.link}}
+              <div class="stimulus-link">
+                {{discussion.stimulus.link}}
+              </div>
+            {{/if}}
+          </div>
+          {{#each featuredMessages}}
+            {{> message}}
+          {{/each}}
+        </ul>
       {{/if}}
     {{else}}
-      Please select a discussion
+      <div class="sadface">
+        <div class="sadface-text">Please select a discussion</div>
+      </div>
     {{/if}}
   </div>
 </template>
